@@ -33,14 +33,15 @@ def solve_carbon_input(
 	"""
 
 	def soc_for_input(c_in):
-		baseline_soil_carbon = run_rothc(
+		months_df, years_df = run_rothc(
 			starting_soil_carbon=starting_soil_carbon,
 			farmyard_manure_baseline = starting_fym,
 			total_years=total_years,
 			carbon_input_baseline=c_in,
-			start_year=start_year
+			start_year=start_year,
+			write_files=False  # optional: avoid writing Excel each time
 		)
-		return baseline_soil_carbon
+		return years_df.at[0, "SOC_t_C_ha"]
 
 	# Evaluate at bounds
 	soc_min = soc_for_input(c_min)

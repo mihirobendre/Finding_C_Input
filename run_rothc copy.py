@@ -20,6 +20,9 @@ def run_rothc(
     farmyard_manure_project=0.0,
     carbon_input_baseline=2.5,         # annual input
     farmyard_manure_baseline=0.0,      # annual input
+    month_output_path="month_results.xlsx",
+    year_output_path="year_results.xlsx",
+    write_files=True
 ):
     """
     Run RothC with user-defined parameters and return monthly and yearly outputs
@@ -110,9 +113,6 @@ def run_rothc(
     year_list = [[1, j + 1, DPM[0], RPM[0], BIO[0], HUM[0], IOM[0], SOC[0], Total_Delta]]
     month_list = []
 
-
-    return SOC[0]
-'''
     k = 0
     year = start_year
     month = 1
@@ -184,4 +184,3 @@ def run_rothc(
     # Return dataframes for further use
     return output_months_project, output_years_project
 
-'''
